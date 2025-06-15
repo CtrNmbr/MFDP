@@ -11,6 +11,4 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH="/:/app"
 
-EXPOSE 8080
-
-ENTRYPOINT ["python", "src/api.py"]
+ENTRYPOINT ["python", "src/worker.py"]
