@@ -8,7 +8,8 @@ __pycache__/
 __pycache__
 # C extensions
 *.so
-
+*.ipynb
+*.md
 # Distribution / packaging
 .Python
 build/

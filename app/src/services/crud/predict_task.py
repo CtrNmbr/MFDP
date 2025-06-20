@@ -17,7 +17,7 @@ def create_predict_task(predict_task: PredictTask, session: Session) -> PredictT
 def update_predict_task(updated_task: PredictTask, session: Session) -> PredictTask:
     existing_task = get_predict_task(updated_task.id, session)
 
-    existing_task.predicted_quality = updated_task.predicted_quality if updated_task.predicted_quality else None
+    existing_task.isFraud = updated_task.isFraud if updated_task.isFraud else None
     existing_task.status = updated_task.status
 
     session.commit()

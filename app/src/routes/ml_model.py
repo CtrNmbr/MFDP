@@ -29,7 +29,7 @@ def predict(
     token: str = Depends(oauth2_scheme),
     session=Depends(get_session),
 ):
-    """Анализ качества вина"""
+    """Анализ фродовости транзакции"""
 
     user_id = UserService.verify_token(token)
     if user_id is None:
@@ -497,7 +497,7 @@ def get_task(
     token: str = Depends(oauth2_scheme),
     session=Depends(get_session),
 ):
-    """Анализ качества вина"""
+    """Анализ фродовости транзакции"""
 
     user_id = UserService.verify_token(token)
     if user_id is None:
@@ -506,6 +506,7 @@ def get_task(
     task = get_predict_task(task_id, session)
     return {
         "id": task.id,
+        "user_id": user_id,
         "status": task.status,
         'TransactionID': task.TransactionID,
         'id_01': task.id_01,
@@ -958,6 +959,7 @@ def get_prediction_history(
     return [
         Prediction(
             id=p.id,
+            #user_id=p.user_id,
             TransactionID=p.TransactionID,
             id_01=p.id_01,
             id_02=p.id_02,

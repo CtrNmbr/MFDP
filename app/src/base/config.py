@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=str(pathlib.Path(__file__).parent.parent.parent / ".env"),
         env_file_encoding="utf-8",
+        extra='ignore'# Extra inputs are not permitted [type=extra_forbidden, input_value='postgres', input_type=str] # pydantic_core._pydantic_core.ValidationError: 1 validation error for Settings worker-1       | db_password
     )
 
 @lru_cache()

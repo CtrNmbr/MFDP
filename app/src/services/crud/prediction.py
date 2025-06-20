@@ -19,4 +19,5 @@ def get_predictions(user_id: int, session: Session) -> List[QualityPrediction]:
         QualityPrediction.user_id == user_id
     )
     predictions = session.exec(statement).all()
+    print(predictions)
     return predictions

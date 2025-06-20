@@ -921,10 +921,10 @@ def process_predict_task(ch, method, properties, body, session: Session):
 
         # upd task
         predict_task.status = TaskStatus.COMPLETED
-        predict_task.predicted_quality = prediction.predicted_quality
+        predict_task.isFraud = prediction.isFraud
         update_predict_task(predict_task, session)
     except Exception:
-        predict_task.predicted_quality = "Ошибка выполнения. Кредиты будут возвращены"
+        predict_task.isFraud = "Ошибка выполнения. Кредиты будут возвращены"
         predict_task.status = TaskStatus.FAILED
         update_predict_task(predict_task, session)
         account_service.cancel_payment(data.user_id, session)
