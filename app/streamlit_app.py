@@ -9,7 +9,7 @@ if "token" not in st.session_state:
 if "user_id" not in st.session_state:
     st.session_state["user_id"] = None
 
-st.title("💳 Fraud Transaction Prediction App$")
+st.title("💳 Wine Quality Prediction App$")
 
 # Регистрация
 def register():
